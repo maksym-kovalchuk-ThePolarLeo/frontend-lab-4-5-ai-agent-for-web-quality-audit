@@ -16,13 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
   /* Sign-up flow */
 
   function startSignup() {
-    // Pre-compute the plan comparison so the trial section renders instantly.
-    var started = Date.now();
-    var total = 0;
-    while (Date.now() - started < 300) {
-      total += Math.sqrt(total + 1);
-    }
-
     var trial = document.getElementById('trial');
     if (trial) {
       trial.scrollIntoView({ behavior: 'smooth' });
@@ -64,17 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
     question.addEventListener('click', function () {
       question.parentElement.classList.toggle('is-open');
     });
-  });
-
-  /* Seasonal promo bar */
-
-  window.addEventListener('load', function () {
-    setTimeout(function () {
-      var promo = document.createElement('div');
-      promo.className = 'promo';
-      promo.innerHTML = '<strong>Autumn offer</strong> 3 months of Pro for the price of one. <a href="#pricing">See plans</a>';
-      document.body.insertBefore(promo, document.body.firstChild);
-    }, 800);
   });
 
 });
